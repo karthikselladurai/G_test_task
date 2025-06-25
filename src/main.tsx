@@ -1,5 +1,5 @@
 // App.tsx
-import React, { useState } from "react";
+import React, { lazy, useState } from "react";
 import "./App.css";
 import SearchInput from "./components/input";
 import AssignmentIcon from "@mui/icons-material/Assignment";
@@ -9,7 +9,7 @@ import TabItem from "./components/tabs";
 import CustomButton from "./components/button";
 import CloudUploadRoundedIcon from "@mui/icons-material/CloudUploadRounded";
 import RemoveCircleRoundedIcon from "@mui/icons-material/RemoveCircleRounded";
-import TableComponent from "./components/table";
+const TableComponent = lazy(() => import("./components/table"));
 
 function Main() {
   const [activeTab, setActiveTab] = useState("Property Management");

@@ -47,7 +47,6 @@
 @media (min-width: 600px) {
   .container {
     padding: 20px;
-    /* height: 100%; */
     overflow: auto;
     width: calc(100% - 70px);
     margin-left: auto;
@@ -80,7 +79,7 @@
 .dashboard-title {
   width: 217px;
   height: 33px;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 22px;
   line-height: 33px;
@@ -98,7 +97,6 @@
 .content-box {
   border: 1px solid #e3e3ec;
   border-top: none;
-  /* height: calc(100% - 117px); */
   height: calc(100vh - 198px);
 
 }
