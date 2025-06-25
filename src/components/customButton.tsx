@@ -7,6 +7,7 @@ type IconTextButtonProps = {
   bgColor?: string;
   onClick?: () => void;
   width?: number | string;
+  borderRadius?: string;
 };
 
 const IconTextButton = ({
@@ -15,6 +16,7 @@ const IconTextButton = ({
   bgColor = "#1976d2",
   onClick,
   width = "auto",
+  borderRadius = "6px",
 }: IconTextButtonProps) => {
   return (
     <Button
@@ -23,7 +25,7 @@ const IconTextButton = ({
       disableElevation
       sx={{
         backgroundColor: bgColor,
-        borderRadius: "6px",
+        borderRadius: borderRadius,
         height: "35px",
         width: width,
         "@media (max-width: 660px)": {
@@ -61,7 +63,6 @@ const IconTextButton = ({
           color: "#fff",
           whiteSpace: "nowrap",
           overflow: "hidden",
-          
         }}
       >
         {text}

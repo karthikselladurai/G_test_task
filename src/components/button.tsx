@@ -16,7 +16,6 @@ const CustomButton = ({
   bgColor = "#7E66C4",
   lineSize = "79px",
 }: CustomButtonProps) => {
-  console.log("lineSize", lineSize);
   return (
     <Button
       disableElevation

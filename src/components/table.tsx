@@ -6,10 +6,14 @@ import {
   useGridApiRef,
 } from "@mui/x-data-grid";
 import { styled } from "@mui/material/styles";
-import ErrorIcon from "@mui/icons-material/Error";
-import ReportIcon from "@mui/icons-material/Report";
-import LaunchIcon from "@mui/icons-material/Launch";
-import SwapVertIcon from "@mui/icons-material/SwapVert";
+// import ErrorIcon from "@mui/icons-material/Error";
+import ErrorIcon from "../asserts/infoIcon.svg";
+// import ReportIcon from "@mui/icons-material/Report";
+import ReportIcon from "../asserts/reportIcon.png";
+// import LaunchIcon from "@mui/icons-material/Launch";
+import LaunchIcon from "../asserts/redirectIcon.png";
+// import SwapVertIcon from "@mui/icons-material/SwapVert";
+import SwapVertIcon from "../asserts/sortIcon.svg";
 import { initialRows, generateMoreRows, Row } from "./data";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/400.css";
@@ -19,7 +23,7 @@ import dayjs from "dayjs";
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   border: "none",
   "--DataGrid-rowBorderColor": "transparent",
-  "& .MuiDataGrid-columnHeaders": {
+  "& .MuiDataGrid-columnHeader": {
     position: "sticky",
     top: 0,
     backgroundColor: "#8F95A324",
@@ -162,7 +166,12 @@ const TableComponent: React.FC = () => {
         }}
       >
         <span style={{ marginRight: "4px" }}>{params.colDef.headerName}</span>
-        <SwapVertIcon sx={{ fontSize: 16, color: "#383E4C" }} />
+        {/* <SwapVertIcon sx={{ fontSize: 16, color: "#383E4C" }} /> */}
+        <img
+          src={SwapVertIcon}
+          alt={""}
+          // style={{ width: "22.37px", height: "13.75px" }}
+        />
       </div>
     );
   };
@@ -210,7 +219,12 @@ const TableComponent: React.FC = () => {
           {/* Removed maxHeight and overflow */}
           {params.value}
           {params.value === "Present" && (
-            <ErrorIcon sx={{ color: "#556EE6", fontSize: 16 }} />
+            // <ErrorIcon sx={{ color: "#556EE6", fontSize: 16 }} />
+            <img
+              src={ErrorIcon}
+              alt={""}
+              // style={{ width: "22.37px", height: "13.75px" }}
+            />
           )}
         </div>
       ),
@@ -242,7 +256,12 @@ const TableComponent: React.FC = () => {
           {/* Removed maxHeight and overflow */}
           {params.value}
           {params.value === "Available" && (
-            <LaunchIcon sx={{ color: "#3464EB", fontSize: 16 }} />
+            // <LaunchIcon sx={{ color: "#3464EB", fontSize: 16 }} />
+            <img
+              src={LaunchIcon}
+              alt={""}
+              // style={{ width: "22.37px", height: "13.75px" }}
+            />
           )}
         </div>
       ),
@@ -269,7 +288,12 @@ const TableComponent: React.FC = () => {
           {/* Removed maxHeight and overflow */}
           {params.value}
           {params.value > 0 && (
-            <ReportIcon sx={{ color: "#F46A6A", fontSize: 16 }} />
+            // <ReportIcon sx={{ color: "#F46A6A", fontSize: 16 }} />
+            <img
+              src={ReportIcon}
+              alt={""}
+              // style={{ width: "22.37px", height: "13.75px" }}
+            />
           )}
         </div>
       ),
@@ -296,7 +320,12 @@ const TableComponent: React.FC = () => {
           {/* Removed maxHeight and overflow */}
           {params.value}
           {params.value > 0 && (
-            <ReportIcon sx={{ color: "#F46A6A", fontSize: 16 }} />
+            // <ReportIcon sx={{ color: "#F46A6A", fontSize: 16 }} />
+            <img
+              src={ReportIcon}
+              alt={""}
+              // style={{ width: "22.37px", height: "13.75px" }}
+            />
           )}
         </div>
       ),
@@ -326,7 +355,12 @@ const TableComponent: React.FC = () => {
             {/* Removed maxHeight and overflow */}
             {params.value}
             {dayjs(params.value, "MM/DD/YYYY hh:mm A").isBefore(dayjs()) && (
-              <ReportIcon sx={{ color: "#F46A6A", fontSize: 16 }} />
+              // <ReportIcon sx={{ color: "#F46A6A", fontSize: 16 }} />
+              <img
+                src={ReportIcon}
+                alt={""}
+                // style={{ width: "22.37px", height: "13.75px" }}
+              />
             )}
           </div>
         );

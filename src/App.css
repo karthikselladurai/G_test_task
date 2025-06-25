@@ -351,6 +351,10 @@
   height: 13px !important;
 }
 
+.view-connection-bt{
+  margin-right: 17px;
+}
+
 .header-container-dark {
   background-color: #7c7c7c;
 }
@@ -376,6 +380,7 @@
   align-items: center;
   gap: 10px;
   padding: 10px;
+  margin-right: 17px;
 }
 .custom-not-empty.MuiDataGrid-cellEmpty {
   opacity: 1 !important;

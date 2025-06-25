@@ -92,6 +92,10 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
             display: { xs: "none", sm: "block" },
             marginLeft: 2,
             fontSize: "11px",
+            width: 89,
+            height: 20,
+            padding: 0,
+            fontWeight: 400,
           }}
         >
           Reset To Default

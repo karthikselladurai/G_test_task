@@ -30,11 +30,12 @@ function Main() {
           </Box>
           <p className="dashboard-title">Listing Dashboard</p>
         </div>
-        <div>
+        <div className="view-connection-bt">
           <IconTextButton
             text="View Connections"
             bgColor="#556EE6"
             width={162}
+            borderRadius={"4px"}
           />
         </div>
       </div>
