@@ -30,7 +30,8 @@ import StackedLineChartIcon from "@mui/icons-material/StackedLineChart";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import KeyboardIcon from "@mui/icons-material/Keyboard";
 import DonutSmallIcon from "@mui/icons-material/DonutSmall";
-import MenuIcon from "@mui/icons-material/Menu";
+// import MenuIcon from "@mui/icons-material/Menu";
+import MenuIcon from "../asserts/menuBar.svg";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 export interface IProps {
@@ -183,12 +184,17 @@ function SideBar({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
           // onClick={() => setSideBarOpen(!sideBarOpen)}
           sx={{ minWidth: 0, p: 1 }}
         >
-          <MenuIcon
+          {/* <MenuIcon
             sx={{
               color: "white",
               // transition: "transform 0.2s ease-in-out",
               // transform: !sideBarOpen ? "rotate(0deg)" : "rotate(90deg)",
             }}
+          /> */}
+          <img
+            src={MenuIcon}
+            alt={""}
+            style={{ width: "22.37px", height: "13.75px" }}
           />
         </Button>
       </Box>

@@ -1,9 +1,12 @@
 import { Box, Button, Typography } from "@mui/material";
 import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
-import NotificationImportantIcon from "@mui/icons-material/NotificationImportant";
-import SettingsIcon from "@mui/icons-material/Settings";
+// import NotificationImportantIcon from "@mui/icons-material/NotificationImportant";
+import NotificationImportantIcon from "../asserts/bellicon.svg";
+// import SettingsIcon from "@mui/icons-material/Settings";
+import SettingsIcon from "../asserts/settingIcon.svg";
 import "../App.css";
-import MenuIcon from "@mui/icons-material/Menu";
+// import MenuIcon from "@mui/icons-material/Menu";
+import MenuIcon from "../asserts/menuBar.svg";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 export interface IProps {
@@ -30,13 +33,26 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
         >
           <Button
             onClick={() => (isMobile ? setSideBarOpen(!sideBarOpen) : null)}
+            sx={{
+              width: "38px",
+              height: "38px",
+              p: 0,
+            }}
           >
-            <MenuIcon
+            {/* <MenuIcon
               sx={{
+                // width: "22.37px",
+                // height: "13.75px",
                 color: "white",
                 transition: "transform 0.2s ease-in-out",
                 transform: !sideBarOpen ? "rotate(0deg)" : "rotate(90deg)",
               }}
+              className="menu-icon"
+            /> */}
+            <img
+              src={MenuIcon}
+              alt={""}
+              style={{ width: "22.37px", height: "13.75px" }}
             />
           </Button>
         </Box>
@@ -46,18 +62,27 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
             bgcolor: "#BDBECC",
             width: { xs: "100%", sm: "119px" },
             height: "38px",
+            borderRadius: "4.8px",
           }}
         >
-          <FilterListAltIcon sx={{ bgcolor: "#2b3b5c", color: "white" }} />
+          <FilterListAltIcon
+            sx={{
+              bgcolor: "#2b3b5c",
+              color: "white",
+              width: "20px",
+              height: "20px",
+            }}
+          />
           <Typography
             sx={{
               color: "#2B3B5C",
               display: { xs: "none", sm: "block" },
               ml: 1,
               fontSize: "12px",
+              fontWeight: 400,
             }}
           >
-            Filters
+            FILTERS
           </Typography>
         </Button>
         <Button
@@ -82,7 +107,12 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
               xs: "none",
               sm: "flex",
               fontSize: "14px",
-              width: "115px",
+              height: 25.8,
+              width: "114.82px",
+              fontWeight: 700,
+              color: " #6B6D82",
+              display: "flex",
+              alignItems: "center",
             },
           }}
         >
@@ -92,24 +122,40 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
           variant="contained"
           sx={{
             borderRadius: "50%",
-            width: 25,
-            height: 25,
+            width: "24.86px",
+            height: "25.24px",
             bgcolor: "#00A6E5",
             color: "white",
             padding: 0,
             minWidth: 0,
+            fontSize: "12px",
+            fontWeight: 700,
           }}
         >
           S
         </Button>
         <Button sx={{ padding: 0 }}>
-          <SettingsIcon sx={{ color: "#8C8D94" }} />
+          {/* <SettingsIcon
+            sx={{ color: "#8C8D94", width: "16.57px", height: "16.46px" }}
+          /> */}
+          <img
+            src={SettingsIcon}
+            alt={""}
+            style={{ width: "16.57px", height: "16.46px" }}
+          />
         </Button>
         <Button sx={{ padding: 0 }}>
-          <NotificationImportantIcon
+          {/* <NotificationImportantIcon
             sx={{
               color: "#C62828",
+              width: "15.39px",
+              height: "17.56px",
             }}
+          /> */}
+          <img
+            src={NotificationImportantIcon}
+            alt={""}
+            style={{ width: "15.39px", height: "17.56px" }}
           />
         </Button>
       </div>

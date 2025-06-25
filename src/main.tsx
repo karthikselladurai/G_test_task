@@ -66,7 +66,7 @@ function Main() {
               bgColor="#ED743299"
               lineSize="55px"
             />
-            <CustomButton text="Duplicate" number={19} bgColor=" #383E4C99;" />
+            <CustomButton text="Duplicates" number={19} bgColor=" #383E4C99;" />
             <CustomButton
               text="Issues with Updates/ Deletion"
               number={10}
