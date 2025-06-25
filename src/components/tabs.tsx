@@ -21,6 +21,7 @@ const TabItem = ({ label, number, isActive, onClick }: TabItemProps) => {
         height: "48px",
         borderTopLeftRadius: "10px",
         fontSize:"14px",
+        padding:"8px",
         borderTopRightRadius: "10px",
         backgroundColor: isActive ? "#fff" : "#EDEDEF",
         cursor: "pointer",
