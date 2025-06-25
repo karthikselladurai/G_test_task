@@ -4,6 +4,7 @@ import NotificationImportantIcon from "@mui/icons-material/NotificationImportant
 import SettingsIcon from "@mui/icons-material/Settings";
 import "../App.css";
 import MenuIcon from "@mui/icons-material/Menu";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export interface IProps {
   setSideBarOpen: (sidebar: boolean) => void;
@@ -11,23 +12,25 @@ export interface IProps {
 }
 
 function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
+  const isMobile = useMediaQuery("(max-width:768px)");
   return (
     <div className={`header-component `}>
       {/* Left Section */}
       <div className="header-left">
         <Box
           sx={{
-            height: 64,
-            w: "100px",
+            height: isMobile ? "68.5px" : "84px",
             mr: 2,
-            minWidth: 70,
+            minWidth: 52,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: " #1E1E2C",
           }}
         >
-          <Button onClick={() => setSideBarOpen(!sideBarOpen)}>
+          <Button
+            onClick={() => (isMobile ? setSideBarOpen(!sideBarOpen) : null)}
+          >
             <MenuIcon
               sx={{
                 color: "white",
@@ -37,7 +40,14 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
             />
           </Button>
         </Box>
-        <Button variant="contained" sx={{ bgcolor: "#BDBECC" }}>
+        <Button
+          variant="contained"
+          sx={{
+            bgcolor: "#BDBECC",
+            width: { xs: "100%", sm: "119px" },
+            height: "38px",
+          }}
+        >
           <FilterListAltIcon sx={{ bgcolor: "#2b3b5c", color: "white" }} />
           <Typography
             sx={{
@@ -68,7 +78,12 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
         <Typography
           variant="body1"
           sx={{
-            display: { xs: "none", sm: "flex", fontSize: "14px",width:"115px" },
+            display: {
+              xs: "none",
+              sm: "flex",
+              fontSize: "14px",
+              width: "115px",
+            },
           }}
         >
           John Doe
@@ -87,7 +102,7 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
         >
           S
         </Button>
-        <Button sx={{ padding: 0, display: { xs: "none", sm: "flex" } }}>
+        <Button sx={{ padding: 0 }}>
           <SettingsIcon sx={{ color: "#8C8D94" }} />
         </Button>
         <Button sx={{ padding: 0 }}>

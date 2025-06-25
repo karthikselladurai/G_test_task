@@ -6,6 +6,7 @@ type CustomButtonProps = {
   number: number;
   width?: number;
   bgColor?: string;
+  lineSize?: string;
 };
 
 const CustomButton = ({
@@ -13,7 +14,9 @@ const CustomButton = ({
   number,
   width = 200,
   bgColor = "#7E66C4",
+  lineSize = "79px",
 }: CustomButtonProps) => {
+  console.log("lineSize", lineSize);
   return (
     <Button
       disableElevation
@@ -53,13 +56,14 @@ const CustomButton = ({
             color: "#FFFFFF",
             wordWrap: "break-word",
             textAlign: "left",
+            marginTop: "23px",
           }}
         >
           {text}
         </Typography>
         <Box
           sx={{
-            width: "79px",
+            width: `${lineSize}`,
             height: "2px",
             backgroundColor: "#B8B8D2",
             marginTop: "4px",

@@ -54,9 +54,19 @@ function Main() {
       <Box className="content-box">
         <div className="filters-row">
           <div className="status-buttons">
-            <CustomButton text="Mismatched" number={27} bgColor="##3307A899" />
-            <CustomButton text="Missing" number={10} bgColor="#ED743299" />
-            <CustomButton text="Duplicate" number={19} bgColor="#BDBECB" />
+            <CustomButton
+              text="Mismatched"
+              number={27}
+              bgColor=" #3307A899;"
+              lineSize="95px"
+            />
+            <CustomButton
+              text="Missing"
+              number={10}
+              bgColor="#ED743299"
+              lineSize="55px"
+            />
+            <CustomButton text="Duplicate" number={19} bgColor=" #383E4C99;" />
             <CustomButton
               text="Issues with Updates/ Deletion"
               number={10}

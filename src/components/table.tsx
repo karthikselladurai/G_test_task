@@ -400,24 +400,24 @@ const TableComponent: React.FC = () => {
               },
             }}
           />
+          <div
+            style={{
+              textAlign: "right",
+              marginTop: "8px",
+              padding: "2px 16px",
+              color: "#0DA9DE",
+              fontFamily: "Poppins",
+              fontSize: "14px",
+              fontWeight: 400,
+              cursor: isViewAllDisabled ? "not-allowed" : "pointer",
+              opacity: isViewAllDisabled ? 0.5 : 1,
+            }}
+            onClick={addMoreRows}
+          >
+            View All
+          </div>
         </div>
       )}
-      <div
-        style={{
-          textAlign: "right",
-          marginTop: "8px",
-          padding: "2px 16px",
-          color: "#0DA9DE",
-          fontFamily: "Poppins",
-          fontSize: "14px",
-          fontWeight: 400,
-          cursor: isViewAllDisabled ? "not-allowed" : "pointer",
-          opacity: isViewAllDisabled ? 0.5 : 1,
-        }}
-        onClick={addMoreRows}
-      >
-        View All
-      </div>
     </div>
   );
 };
