@@ -5,15 +5,16 @@ type TabItemProps = {
   number?: number;
   isActive: boolean;
   onClick: () => void;
+  width?: number;
 };
 
-const TabItem = ({ label, number, isActive, onClick }: TabItemProps) => {
+const TabItem = ({ label, number, isActive, onClick, width }: TabItemProps) => {
   return (
     <Box
       onClick={onClick}
       sx={{
         position: "relative",
-        minWidth: "176px",
+        minWidth: `${width}px`,
         "@media (max-width: 660px)": {
           minWidth: "80px",
           height: "40px",

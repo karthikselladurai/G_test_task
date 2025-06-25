@@ -7,8 +7,10 @@ import { Box } from "@mui/material";
 import IconTextButton from "./components/customButton";
 import TabItem from "./components/tabs";
 import CustomButton from "./components/button";
-import CloudUploadRoundedIcon from "@mui/icons-material/CloudUploadRounded";
-import RemoveCircleRoundedIcon from "@mui/icons-material/RemoveCircleRounded";
+// import CloudUploadRoundedIcon from "@mui/icons-material/CloudUploadRounded";
+import CloudUploadRoundedIcon from "./asserts/uploadIcon.svg";
+// import RemoveCircleRoundedIcon from "@mui/icons-material/RemoveCircleRounded";
+import RemoveCircleRoundedIcon from "./asserts/dndIcon.svg";
 const TableComponent = lazy(() => import("./components/table"));
 
 function Main() {
@@ -16,9 +18,9 @@ function Main() {
   const [value, setValue] = useState("");
 
   const tabs = [
-    { label: "Analytics" },
-    { label: "Property Management", number: 68 },
-    { label: "Scheduled Updates" },
+    { label: "Analytics", width: 176 },
+    { label: "Property Management", number: 68, width: 210 },
+    { label: "Scheduled Updates", width: 176 },
   ];
 
   return (
@@ -48,6 +50,7 @@ function Main() {
             number={tab.number}
             isActive={activeTab === tab.label}
             onClick={() => setActiveTab(tab.label)}
+            width={tab.width}
           />
         ))}
       </Box>
@@ -87,13 +90,27 @@ function Main() {
             <div className="button-pair">
               <IconTextButton
                 text="Bulk Manage Holiday Hours"
-                icon={<CloudUploadRoundedIcon fontSize="small" />}
+                // icon={<CloudUploadRoundedIcon fontSize="small" />}
+                icon={
+                  <img
+                    src={CloudUploadRoundedIcon}
+                    alt={""}
+                    style={{ width: "20px", height: "14px" }}
+                  />
+                }
                 bgColor="#77B83D"
                 width={220}
               />
               <IconTextButton
                 text="Ignore Websites from Listing"
-                icon={<RemoveCircleRoundedIcon fontSize="small" />}
+                // icon={<RemoveCircleRoundedIcon fontSize="small" />}
+                icon={
+                  <img
+                    src={RemoveCircleRoundedIcon}
+                    alt={""}
+                    style={{ width: "23.98px", height: "23.98px" }}
+                  />
+                }
                 bgColor="#F1AC58"
                 width={220}
               />

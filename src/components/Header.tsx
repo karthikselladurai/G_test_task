@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
-import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
+// import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
+import FilterListAltIcon from "../asserts/filterIcon.svg";
 // import NotificationImportantIcon from "@mui/icons-material/NotificationImportant";
 import NotificationImportantIcon from "../asserts/bellicon.svg";
 // import SettingsIcon from "@mui/icons-material/Settings";
@@ -65,14 +66,24 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
             borderRadius: "4.8px",
           }}
         >
-          <FilterListAltIcon
+          {/* <FilterListAltIcon
             sx={{
               bgcolor: "#2b3b5c",
               color: "white",
               width: "20px",
               height: "20px",
             }}
-          />
+          /> */}
+          <div className="filter-bt-icon">
+            <img
+              src={FilterListAltIcon}
+              alt={""}
+              style={{
+                width: "13.26px",
+                height: "13.33px",
+              }}
+            />
+          </div>
           <Typography
             sx={{
               color: "#2B3B5C",

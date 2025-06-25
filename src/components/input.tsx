@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, InputBase } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+// import SearchIcon from "@mui/icons-material/Search";
+import SearchIcon from "../asserts/searchIcon.svg";
 
 type Props = {
   value: string;
@@ -14,7 +15,7 @@ const SearchInput = ({ value, onChange }: Props) => {
         display: "flex",
         alignItems: "center",
         width: "100%",
-        minWidth: "258px",
+        minWidth: "231px",
         height: "35px",
         backgroundColor: "#F5F5F5",
         borderRadius: "6px",
@@ -50,13 +51,18 @@ const SearchInput = ({ value, onChange }: Props) => {
           borderBottomRightRadius: "6px",
         }}
       >
-        <SearchIcon
+        {/* <SearchIcon
           sx={{
             fontSize: "15px",
             color: "#FFFFFF",
             width: "30px",
             height: "30px",
           }}
+        /> */}
+        <img
+          src={SearchIcon}
+          alt={""}
+          style={{ width: "14.44px", height: "14.36px" }}
         />
       </Box>
     </Box>

@@ -374,6 +374,12 @@
   gap: 3px;
 }
 
+.filter-bt-icon{
+  background-color: #2b3b5c;
+  width: 20px;
+  height: 20px;
+}
+
 .header-right {
   display: flex;
   justify-content: center;

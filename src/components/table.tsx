@@ -210,7 +210,7 @@ const TableComponent: React.FC = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "8px",
+            gap: "14px",
             whiteSpace: "normal",
             wordBreak: "break-word",
           }}
@@ -223,7 +223,7 @@ const TableComponent: React.FC = () => {
             <img
               src={ErrorIcon}
               alt={""}
-              // style={{ width: "22.37px", height: "13.75px" }}
+              style={{ width: "20px", height: "20px" }}
             />
           )}
         </div>
@@ -247,7 +247,7 @@ const TableComponent: React.FC = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "8px",
+            gap: "14px",
             whiteSpace: "normal",
             wordBreak: "break-word",
           }}
@@ -260,7 +260,7 @@ const TableComponent: React.FC = () => {
             <img
               src={LaunchIcon}
               alt={""}
-              // style={{ width: "22.37px", height: "13.75px" }}
+              style={{ width: "18.01px", height: "18.01px" }}
             />
           )}
         </div>
@@ -278,7 +278,7 @@ const TableComponent: React.FC = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "4px",
+            gap: "14px",
             whiteSpace: "normal",
             wordBreak: "break-word",
             color: params.value > 0 ? "#3464EB" : " #6B6D82",
@@ -292,7 +292,7 @@ const TableComponent: React.FC = () => {
             <img
               src={ReportIcon}
               alt={""}
-              // style={{ width: "22.37px", height: "13.75px" }}
+              style={{ width: "20px", height: "20px" }}
             />
           )}
         </div>
@@ -310,7 +310,7 @@ const TableComponent: React.FC = () => {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "4px",
+            gap: "14px",
             whiteSpace: "normal",
             wordBreak: "break-word",
             color: params.value > 0 ? "#3464EB" : " #6B6D82",
@@ -324,7 +324,7 @@ const TableComponent: React.FC = () => {
             <img
               src={ReportIcon}
               alt={""}
-              // style={{ width: "22.37px", height: "13.75px" }}
+              style={{ width: "20px", height: "20px" }}
             />
           )}
         </div>
@@ -344,7 +344,7 @@ const TableComponent: React.FC = () => {
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "4px",
+              gap: "14px",
               whiteSpace: "nowrap",
               textOverflow: "ellipsis",
               overflow: "hidden",
@@ -359,7 +359,7 @@ const TableComponent: React.FC = () => {
               <img
                 src={ReportIcon}
                 alt={""}
-                // style={{ width: "22.37px", height: "13.75px" }}
+                style={{ width: "20px", height: "20px" }}
               />
             )}
           </div>
