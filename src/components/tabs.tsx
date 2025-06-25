@@ -24,7 +24,7 @@ const TabItem = ({ label, number, isActive, onClick }: TabItemProps) => {
         padding: "8px",
         margin: "1px",
         borderTopRightRadius: "10px",
-        backgroundColor: isActive ? "#fff" : "#EDEDEF",
+        backgroundColor: isActive ? "#fff" : "#6B6D8224",
         cursor: "pointer",
         display: "flex",
         alignItems: "center",
@@ -41,7 +41,7 @@ const TabItem = ({ label, number, isActive, onClick }: TabItemProps) => {
             fontSize: "9px",
           },
           fontWeight: 400,
-          color: isActive ? "#C0392B" : "#8F95A3",
+          color: isActive ? "#C2212A" : "#6B6D82",
         }}
       >
         {label}
