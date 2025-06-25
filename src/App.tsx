@@ -1,22 +1,19 @@
 import "./App.css";
 import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
-import { useState } from "react";
 import AppRouter from "./router/AppRouter";
 
 function App() {
-  const [isLight, setIsLight] = useState(true);
-
   const customTheme = createTheme({
     palette: {
-      mode: isLight ? "light" : "dark",
+      mode: "light",
       background: {
-        default: isLight ? "#f5f5f5" : "#333333",
+        default: "#ffffff",
       },
     },
     typography: {
       fontFamily: "Roboto, sans-serif",
       fontSize: 14,
-      body1: { fontSize: "1rem", color: isLight ? "#000" : "#fff" },
+      body1: { fontSize: "1rem", color: "#000" },
     },
     components: {
       MuiButton: {
@@ -35,7 +32,7 @@ function App() {
   return (
     <ThemeProvider theme={customTheme}>
       <CssBaseline />
-      <AppRouter setTheme={setIsLight} />
+      <AppRouter />
     </ThemeProvider>
   );
 }

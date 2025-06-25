@@ -1,71 +1,3 @@
-// import {
-//   Box,
-//   Button,
-//   Drawer,
-//   List,
-//   ListItem,
-//   ListItemButton,
-//   ListItemIcon,
-//   Tooltip,
-//   Typography,
-//   useTheme,
-// } from "@mui/material";
-
-// import {
-//   People,
-//   Language,
-//   Settings,
-//   Home,
-//   Dashboard,
-//   BarChart,
-//   Star,
-//   Assignment,
-// } from "@mui/icons-material";
-// import MenuIcon from "@mui/icons-material/Menu";
-
-// const navItems = [
-//   { icon: <People />, label: "Users" },
-//   { icon: <Settings />, label: "Settings" },
-//   { icon: <Home />, label: "Home" },
-//   { icon: <Assignment />, label: "Reports" },
-//   { icon: <BarChart />, label: "Stats" },
-//   { icon: <Star />, label: "Favorites" },
-//   { icon: <Language />, label: "Globe" },
-//   { icon: <Dashboard />, label: "Dashboard" },
-// ];
-
-// function SideBar() {
-//   const theme = useTheme();
-//   const mode = theme.palette.mode;
-//   return (
-//     <Box>
-//       <Drawer variant="permanent" open={true} sx={{ width: 200 }}>
-//         <Button
-//           sx={{ height: 100, borderRadius: 0, backgroundColor: "#3d4044" }}
-//         >
-//           <MenuIcon sx={{ color: "white" }} />
-//         </Button>
-//         <List sx={{ backgroundColor: "#2b3b5c", height: "100%" }}>
-//           {navItems.map(({ icon, label }, index) => (
-//             <Tooltip title={label} placement="right" key={index}>
-//               <ListItem disablePadding>
-//                 <ListItemButton sx={{ justifyContent: "center", py: 2 }}>
-//                   <ListItemIcon sx={{ color: "#fff", minWidth: 0 }}>
-//                     {icon}
-//                   </ListItemIcon>
-//                 </ListItemButton>
-//               </ListItem>
-//             </Tooltip>
-//           ))}
-//         </List>
-//       </Drawer>
-//     </Box>
-//   );
-// }
-
-// export default SideBar;
-
-
 import {
   Box,
   Button,
@@ -100,34 +32,42 @@ function SideBar({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
     {
       icon: <People sx={{ color: "rgb(216, 216, 216)" }} />,
       label: "Users",
+      active: false,
     },
     {
       icon: <Settings sx={{ color: "rgb(216, 216, 216)" }} />,
       label: "Settings",
+      active: false,
     },
     {
       icon: <Home sx={{ color: "rgb(216, 216, 216)" }} />,
       label: "Home",
+      active: false,
     },
     {
       icon: <Assignment sx={{ color: "rgb(216, 216, 216)" }} />,
       label: "Reports",
+      active: false,
     },
     {
       icon: <BarChart sx={{ color: "rgb(216, 216, 216)" }} />,
       label: "Stats",
+      active: false,
     },
     {
       icon: <Star sx={{ color: "rgb(216, 216, 216)" }} />,
       label: "Favorites",
+      active: false,
     },
     {
       icon: <Language sx={{ color: "rgb(216, 216, 216)" }} />,
       label: "Globe",
+      active: false,
     },
     {
       icon: <Dashboard sx={{ color: "rgb(216, 216, 216)" }} />,
       label: "Dashboard",
+      active: true,
     },
   ];
 
@@ -170,8 +110,12 @@ function SideBar({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
       </Box>
 
       <List>
-        {navItems.map(({ icon, label }) => (
-          <ListItem disablePadding key={label} sx={{ display: "block" }}>
+        {navItems.map(({ icon, label, active }) => (
+          <ListItem
+            disablePadding
+            key={label}
+            sx={{ display: "block", bgcolor: active ? "rgb(25, 35, 54)" : "" }}
+          >
             <Tooltip title={!sideBarOpen ? label : ""} placement="right">
               <ListItemButton
                 sx={{

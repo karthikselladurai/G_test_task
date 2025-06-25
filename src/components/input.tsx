@@ -13,8 +13,8 @@ const SearchInput = ({ value, onChange }: Props) => {
       sx={{
         display: "flex",
         alignItems: "center",
-        width: "100%",        
-        minWidth: "258px",     
+        width: "100%",
+        minWidth: "258px",
         height: "35px",
         backgroundColor: "#F5F5F5",
         borderRadius: "6px",

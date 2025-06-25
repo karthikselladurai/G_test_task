@@ -1,102 +1,18 @@
-// import { Box, Button, Typography, useTheme } from "@mui/material";
-// import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
-// import NotificationImportantIcon from "@mui/icons-material/NotificationImportant";
-// import SettingsIcon from "@mui/icons-material/Settings";
-// import { buttonColors } from "../common/color";
-
-// function Header() {
-//   const theme = useTheme();
-//   const mode = theme.palette.mode;
-//   return (
-//     <Box
-//       sx={{
-//         display: "flex",
-//         justifyContent: "space-between",
-//         width: "100%",
-//       }}
-//     >
-//       <Box
-//         sx={{
-//           display: "flex",
-//           justifyContent: "center",
-//           alignItems: "center",
-//           gap: 3,
-//         }}
-//       >
-//         <Button variant="contained" sx={{ bgcolor: "#bebdcc" }}>
-//           <FilterListAltIcon
-//             sx={{ bgcolor: "#2b3b5c", color: "white", marginRight: 1 }}
-//           />{" "}
-//           Filters
-//         </Button>
-//         <Button variant="text"> Reset To Default</Button>
-//       </Box>
-//       <Box
-//         sx={{
-//           display: "flex",
-//           justifyContent: "center",
-//           alignItems: "center",
-//           gap: 3,
-//         }}
-//       >
-//         <Typography variant="body1">John Doe</Typography>
-//         <Button
-//           variant="contained"
-//           sx={{
-//             borderRadius: "50%",
-//             width: 25,
-//             height: 25,
-//             bgcolor: "",
-//             padding: 0,
-//             minWidth: 0,
-//             color: "white",
-//           }}
-//         >
-//           s
-//         </Button>
-//         <Button sx={{ padding: 0 }}>
-//           <SettingsIcon sx={{ color: buttonColors[mode].settings }} />
-//         </Button>
-//         <Button sx={{ padding: 0 }}>
-//           <NotificationImportantIcon
-//             sx={{ color: buttonColors[mode].notifications }}
-//           />
-//         </Button>
-//       </Box>
-//     </Box>
-//   );
-// }
-
-// export default Header;
-
-
-import { Box, Button, Typography, useTheme } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
 import NotificationImportantIcon from "@mui/icons-material/NotificationImportant";
 import SettingsIcon from "@mui/icons-material/Settings";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
-import { buttonColors } from "../common/color";
 import "../App.css";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export interface IProps {
-  setTheme: (_theme: boolean) => void;
   setSideBarOpen: (sidebar: boolean) => void;
   sideBarOpen: boolean;
 }
 
-function Header({ setTheme, setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
-  const theme = useTheme();
-  const mode = theme.palette.mode;
-
-  const changeTheme = () => {
-    const isDarkMode = localStorage.getItem("theme") === "true";
-    localStorage.setItem("theme", (!isDarkMode).toString());
-    setTheme(!isDarkMode);
-  };
-
+function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
   return (
-    <div className={`header-component header-container-${mode}`}>
+    <div className={`header-component `}>
       {/* Left Section */}
       <div className="header-left">
         <Box
@@ -121,10 +37,7 @@ function Header({ setTheme, setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
             />
           </Button>
         </Box>
-        <Button
-          variant="contained"
-          sx={{ bgcolor: buttonColors[mode]?.filterButton }}
-        >
+        <Button variant="contained" sx={{ bgcolor: "#BDBECC" }}>
           <FilterListAltIcon sx={{ bgcolor: "#2b3b5c", color: "white" }} />
           <Typography
             sx={{
@@ -164,7 +77,7 @@ function Header({ setTheme, setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
             borderRadius: "50%",
             width: 25,
             height: 25,
-            bgcolor: buttonColors[mode]?.avatar,
+            bgcolor: "#00A6E5",
             color: "white",
             padding: 0,
             minWidth: 0,
@@ -173,17 +86,14 @@ function Header({ setTheme, setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
           S
         </Button>
         <Button sx={{ padding: 0, display: { xs: "none", sm: "flex" } }}>
-          <SettingsIcon sx={{ color: buttonColors[mode]?.settings }} />
+          <SettingsIcon sx={{ color: "#8C8D94" }} />
         </Button>
         <Button sx={{ padding: 0 }}>
           <NotificationImportantIcon
             sx={{
-              color: buttonColors[mode]?.notifications,
+              color: "#C62828",
             }}
           />
-        </Button>
-        <Button onClick={changeTheme} sx={{ padding: 0 }}>
-          <DarkModeIcon sx={{ color: buttonColors[mode]?.moonIcon }} />
         </Button>
       </div>
     </div>
