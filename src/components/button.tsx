@@ -26,7 +26,7 @@ const CustomButton = ({
         minWidth: `${width}px`,
         width: "100%",
         backgroundColor: bgColor,
-        borderRadius: "16px",
+        borderRadius: "14px",
         padding: "0 24px",
         textTransform: "none",
         display: "flex",
@@ -65,7 +65,7 @@ const CustomButton = ({
           sx={{
             width: `${lineSize}`,
             height: "2px",
-            backgroundColor: "#B8B8D2",
+            backgroundColor: "#BDBECB",
             marginTop: "4px",
           }}
         />

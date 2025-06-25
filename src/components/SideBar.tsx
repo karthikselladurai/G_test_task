@@ -162,7 +162,7 @@ function SideBar({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
         // display: { xs: "none", sm: "block" },
         "& .MuiDrawer-paper": {
           width: { sm: "52px", xs: sideBarOpen ? "52px" : 0 },
-          overflow: "hidden",
+          overflowX: "hidden",
           boxSizing: "border-box",
           backgroundColor: "#2B3B5C",
           color: "#fff",

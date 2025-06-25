@@ -36,11 +36,11 @@ const TabItem = ({ label, number, isActive, onClick }: TabItemProps) => {
       <Typography
         sx={{
           fontFamily: "Poppins",
-          fontSize: "13px",
+          fontSize: "14px",
           "@media (max-width: 660px)": {
             fontSize: "9px",
           },
-          fontWeight: 500,
+          fontWeight: 400,
           color: isActive ? "#C0392B" : "#8F95A3",
         }}
       >
@@ -50,15 +50,15 @@ const TabItem = ({ label, number, isActive, onClick }: TabItemProps) => {
         <Box
           sx={{
             position: "absolute",
-            top: "-8px",
+            top: "-14px",
             right: "8px",
-            width: "24px",
-            height: "24px",
+            width: "30px",
+            height: "30px",
             borderRadius: "50%",
             backgroundColor: "#C0392B",
             color: "#fff",
-            fontSize: "12px",
-            fontWeight: 600,
+            fontSize: "14px",
+            fontWeight: 400,
             fontFamily: "Poppins",
             display: "flex",
             alignItems: "center",
