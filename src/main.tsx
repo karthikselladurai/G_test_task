@@ -26,7 +26,7 @@ function Main() {
       <div className="top-row">
         <div className="left-section">
           <Box className="icon-box">
-            <AssignmentIcon sx={{ fontSize: "20px", color: "#FFFFFF" }} />
+            <AssignmentIcon sx={{ fontSize: "22px", color: "#FFFFFF" }} />
           </Box>
           <p className="dashboard-title">Listing Dashboard</p>
         </div>
@@ -78,13 +78,13 @@ function Main() {
                 text="Bulk Manage Holiday Hours"
                 icon={<CloudUploadRoundedIcon fontSize="small" />}
                 bgColor="#77B83D"
-                width={200}
+                width={220}
               />
               <IconTextButton
                 text="Ignore Websites from Listing"
                 icon={<RemoveCircleRoundedIcon fontSize="small" />}
                 bgColor="#F4A840"
-                width={200}
+                width={220}
               />
             </div>
           </div>

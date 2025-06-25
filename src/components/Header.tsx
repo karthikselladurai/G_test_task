@@ -131,6 +131,7 @@ function Header({ setTheme, setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
               color: "#2B3B5C",
               display: { xs: "none", sm: "block" },
               ml: 1,
+              fontSize:"12px"
             }}
           >
             Filters
@@ -142,6 +143,7 @@ function Header({ setTheme, setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
             color: "#0FA9DE",
             display: { xs: "none", sm: "block" },
             marginLeft: 2,
+            fontSize:"11px"
           }}
         >
           Reset To Default
@@ -153,7 +155,7 @@ function Header({ setTheme, setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
         <Typography
           variant="body1"
           sx={{
-            display: { xs: "none", sm: "flex" },
+            display: { xs: "none", sm: "flex", fontSize:"14px"},
           }}
         >
           John Doe
@@ -162,8 +164,8 @@ function Header({ setTheme, setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
           variant="contained"
           sx={{
             borderRadius: "50%",
-            width: 25,
-            height: 25,
+            width: 24,
+            height: 23,
             bgcolor: buttonColors[mode]?.avatar,
             color: "white",
             padding: 0,
@@ -172,13 +174,16 @@ function Header({ setTheme, setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
         >
           S
         </Button>
-        <Button sx={{ padding: 0, display: { xs: "none", sm: "flex" } }}>
-          <SettingsIcon sx={{ color: buttonColors[mode]?.settings }} />
+        <Button sx={{ padding: 0, display: { xs: "none", sm: "flex" }, 
+             }}>
+          <SettingsIcon sx={{ color: buttonColors[mode]?.settings, width: 16,
+            height: 16, }} />
         </Button>
         <Button sx={{ padding: 0 }}>
           <NotificationImportantIcon
             sx={{
-              color: buttonColors[mode]?.notifications,
+              color: buttonColors[mode]?.notifications, width: 15,
+            height: 17,
             }}
           />
         </Button>

@@ -80,7 +80,7 @@
 .dashboard-title {
   width: 217px;
   height: 33px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 22px;
   line-height: 33px;
@@ -98,7 +98,9 @@
 .content-box {
   border: 1px solid #e3e3ec;
   border-top: none;
-  height: calc(100% - 117px);
+  /* height: calc(100% - 117px); */
+  height: calc(100vh - 198px);
+
 }
 
 .filters-row {
@@ -264,6 +266,7 @@
 
   .dashboard-title {
     font-size: 16px !important;
+    width: 168px;
   }
 
   .status-buttons {
@@ -338,4 +341,10 @@
   align-items: center;
   gap: 10px;
   padding: 10px;
+}
+.custom-not-empty.MuiDataGrid-cellEmpty {
+  opacity: 1 !important;
+  color: inherit !important;
+  font-style: normal !important;
+  display: none !important;
 }

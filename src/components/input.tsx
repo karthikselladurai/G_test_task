@@ -19,6 +19,7 @@ const SearchInput = ({ value, onChange }: Props) => {
         backgroundColor: "#F5F5F5",
         borderRadius: "6px",
         overflow: "hidden",
+        boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.1)",
       }}
     >
       <InputBase

@@ -61,7 +61,7 @@ const IconTextButton = ({
           color: "#fff",
           whiteSpace: "nowrap",
           overflow: "hidden",
-          textOverflow: "ellipsis",
+          
         }}
       >
         {text}

@@ -8,6 +8,9 @@ import SwapVertIcon from '@mui/icons-material/SwapVert';
 import { initialRows, generateMoreRows, Row } from './data';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/400.css';
+import dayjs from 'dayjs';
+
+
 
 // Styled DataGrid
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
@@ -53,10 +56,9 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
     fontWeight: 400,
     color: '#6B6D82',
     display: 'flex',
-    alignItems: 'center',
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
+    alignItems: 'flex-start', // Allow content to grow vertically
+    whiteSpace: 'normal',     // Allow wrapping
+    wordBreak: 'break-word',  // Break long words if needed
     '&:focus-within': {
       outline: 'none',
     },
@@ -93,7 +95,10 @@ const TableComponent: React.FC = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setRows(initialRows);
+      setRows(initialRows.map(row => ({
+        ...row,
+        // Updated to current date and time
+      })));
       setIsLoading(false);
     }, 3000);
     return () => clearTimeout(timer);
@@ -104,7 +109,10 @@ const TableComponent: React.FC = () => {
     setIsLoading(true);
     setTimeout(() => {
       const lastId = rows.length > 0 ? rows[rows.length - 1].id : 0;
-      setRows([...rows, ...generateMoreRows(lastId)]);
+      setRows([...rows, ...generateMoreRows(lastId).map(row => ({
+        ...row,
+         // Updated to current date and time
+      }))]);
       setIsLoading(false);
       setIsViewAllDisabled(true);
     }, 1000);
@@ -130,7 +138,7 @@ const TableComponent: React.FC = () => {
       minWidth: 85,
       sortable: false,
       renderCell: (params: GridRenderCellParams) => (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', maxHeight: '36px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'normal', wordBreak: 'break-word' }}> {/* Removed maxHeight and overflow */}
           {params.value}
           {params.value === 'Present' && <ErrorIcon sx={{ color: '#556EE6', fontSize: 16 }} />}
         </div>
@@ -144,7 +152,7 @@ const TableComponent: React.FC = () => {
       minWidth: 85,
       sortable: false,
       renderCell: (params: GridRenderCellParams) => (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', maxHeight: '36px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', whiteSpace: 'normal', wordBreak: 'break-word' }}> {/* Removed maxHeight and overflow */}
           {params.value}
           {params.value === 'Available' && <LaunchIcon sx={{ color: '#3464EB', fontSize: 16 }} />}
         </div>
@@ -158,7 +166,7 @@ const TableComponent: React.FC = () => {
       sortable: true,
       renderHeader: renderSortHeader,
       renderCell: (params: GridRenderCellParams) => (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', maxHeight: '36px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'normal', wordBreak: 'break-word' }}> {/* Removed maxHeight and overflow */}
           {params.value}
           {params.value > 0 && <ReportIcon sx={{ color: '#F46A6A', fontSize: 16 }} />}
         </div>
@@ -172,7 +180,7 @@ const TableComponent: React.FC = () => {
       sortable: true,
       renderHeader: renderSortHeader,
       renderCell: (params: GridRenderCellParams) => (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', maxHeight: '36px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'normal', wordBreak: 'break-word' }}> {/* Removed maxHeight and overflow */}
           {params.value}
           {params.value > 0 && <ReportIcon sx={{ color: '#F46A6A', fontSize: 16 }} />}
         </div>
@@ -182,20 +190,20 @@ const TableComponent: React.FC = () => {
       field: 'lastUpdate',
       headerName: 'LAST UPDATE DATE & TIME',
       flex: 1,
-      minWidth: 85,
+      minWidth: 200,
       sortable: true,
       renderHeader: renderSortHeader,
       renderCell: (params: GridRenderCellParams) => (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', maxHeight: '36px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap', textOverflow: 'ellipsis',overflow: 'hidden' }}> {/* Removed maxHeight and overflow */}
           {params.value}
-          <ReportIcon sx={{ color: '#F46A6A', fontSize: 16 }} />
+         {dayjs(params.value, 'MM/DD/YYYY hh:mm A').isBefore(dayjs())&&( <ReportIcon sx={{ color: '#F46A6A', fontSize: 16 }} />)}
         </div>
       ),
     },
   ];
 
   return (
-    <div style={{ width: '100%',height:"100%", margin: '0 auto', background: '#ffffff', borderRadius: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', fontFamily: 'Poppins', fontSize: '12px' }}>
+    <div style={{ width: '100%', height: '100%', margin: '0 auto', background: '#ffffff', borderRadius: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', fontFamily: 'Poppins', fontSize: '12px' }}>
       {isLoading && rows.length === 0 ? (
         <div style={{ height: '80vh', overflowY: 'auto' }}>
           {Array(5).fill(null).map((_, index) => (
@@ -203,35 +211,37 @@ const TableComponent: React.FC = () => {
           ))}
         </div>
       ) : (
-        <div style={{height:"calc(100% - 33px)"}} >
-        <StyledDataGrid
-          apiRef={apiRef}
-          rows={rows}
-          columns={columns}
-          disableRowSelectionOnClick
-          getRowHeight={() => 60}
-          hideFooter
-          sortingMode="client"
-          loading={isLoading && rows.length > 0}
-          sx={{
-            // maxHeight: '40vh',
-            // height:"100%",
-            overflowY: 'auto',
-            '& .MuiDataGrid-virtualScroller': {
-              overflowY: 'auto !important',
-            },
-            '&::-webkit-scrollbar': {
-              width: '6px',
-            },
-            '&::-webkit-scrollbar-thumb': {
-              backgroundColor: '#cbd5e1',
-              borderRadius: '6px',
-            },
-            '&::-webkit-scrollbar-thumb:hover': {
-              backgroundColor: '#a0aec0',
-            },
-          }}
-        />
+        <div style={{ height: 'calc(100% - 33px)' }}>
+          <StyledDataGrid
+          // disableExtendRowFullWidth={true}
+            apiRef={apiRef}
+            rows={rows}
+            columns={columns}
+            disableRowSelectionOnClick
+            getRowHeight={() => 'auto'} // Allow dynamic row height based on content
+            hideFooter
+            sortingMode="client"
+            disableColumnMenu
+            loading={isLoading && rows.length > 0}
+            sx={{
+              overflowY: 'auto',
+              '& .MuiDataGrid-virtualScroller': {
+                overflowY: 'auto !important',
+              },
+              '&::-webkit-scrollbar': {
+                width: '6px',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                backgroundColor: '#cbd5e1',
+                borderRadius: '6px',
+              },
+              '&::-webkit-scrollbar-thumb:hover': {
+                backgroundColor: '#a0aec0',
+              },
+              '& .MuiDataGrid-cellEmpty': {
+      display: 'none'}
+            }}
+          />
         </div>
       )}
       <div

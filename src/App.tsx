@@ -14,7 +14,7 @@ function App() {
       },
     },
     typography: {
-      fontFamily: "Roboto, sans-serif",
+      fontFamily: "poppins",
       fontSize: 14,
       body1: { fontSize: "1rem", color: isLight ? "#000" : "#fff" },
     },
