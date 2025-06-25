@@ -1,0 +1,26 @@
+export const buttonColors = {
+  light: {
+    primaryButton: "#ffffff",
+    avatar: "#00A6E5",
+    settings: "#8C8D94",
+    notifications: "#C62828",
+    menuToggle: "#2b3b5c",
+    sidebar: "#2b3b5c",
+    sidBarBackground: "#2B3B5C",
+    headerBackGround: "#f0f4ff",
+    moonIcon: "#333333",
+    filterButton: "#BDBECC",
+  },
+  dark: {
+    primaryButton: "#000000",
+    avatar: "#00A6E5",
+    settings: "#ffffff",
+    notifications: "#ff9800",
+    menuToggle: "#ffffff",
+    sidebar: "#ffffff",
+    sidBarBackground: "#2B3B5C",
+    headerBackGround: "#e1edf7",
+    moonIcon: "#fffffff",
+    filterButton: "#BDBECC",
+  },
+};

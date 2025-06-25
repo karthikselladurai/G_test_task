@@ -1,0 +1,257 @@
+import React, { useState, useEffect } from 'react';
+import { DataGrid, GridColDef, GridRenderCellParams, useGridApiRef } from '@mui/x-data-grid';
+import { styled } from '@mui/material/styles';
+import ErrorIcon from '@mui/icons-material/Error';
+import ReportIcon from '@mui/icons-material/Report';
+import LaunchIcon from '@mui/icons-material/Launch';
+import SwapVertIcon from '@mui/icons-material/SwapVert';
+import { initialRows, generateMoreRows, Row } from './data';
+import '@fontsource/poppins/700.css';
+import '@fontsource/poppins/400.css';
+
+// Styled DataGrid
+const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
+  border: 'none',
+  '& .MuiDataGrid-columnHeaders': {
+    position: 'sticky',
+    top: 0,
+    backgroundColor: '#8F95A324',
+    color: '#383E4C',
+    zIndex: 2,
+    borderBottom: 'none',
+    '& .MuiDataGrid-columnHeaderTitle': {
+      padding: '4px 8px',
+      fontFamily: 'Poppins',
+      fontWeight: 700,
+      fontSize: '12px',
+      lineHeight: '16px',
+      textTransform: 'uppercase',
+      textAlign: 'center',
+    },
+  },
+  '& .MuiDataGrid-sortIcon': {
+    display: 'none !important',
+  },
+  '& .MuiDataGrid-row': {
+    backgroundColor: '#0DA9EB0F',
+    '&:nth-of-type(odd)': {
+      backgroundColor: '#ffffff',
+    },
+    borderBottom: 'none !important',
+    '& .MuiDataGrid-cell': {
+      borderBottom: 'none !important',
+    },
+  },
+  '& .MuiDataGrid-columnSeparator': {
+    display: 'none',
+  },
+  '& .MuiDataGrid-cell': {
+    padding: '12px 16px',
+    borderRight: 'none',
+    fontFamily: 'Poppins',
+    fontSize: '12px',
+    fontWeight: 400,
+    color: '#6B6D82',
+    display: 'flex',
+    alignItems: 'center',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    '&:focus-within': {
+      outline: 'none',
+    },
+  },
+  '& .MuiDataGrid-footerContainer': {
+    display: 'none',
+  },
+  '& .MuiDataGrid-cell[data-field="propertyName"]': {
+    color: '#3464EB',
+  },
+}));
+
+const SkeletonRow = () => (
+  <div style={{ display: 'flex', height: '60px', padding: '0 16px', alignItems: 'center', backgroundColor: '#fff' }}>
+    {Array(9).fill(null).map((_, index) => (
+      <div key={index} style={{
+        flex: 1,
+        height: '20px',
+        background: 'linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)',
+        backgroundSize: '200% 100%',
+        animation: 'pulse 1.2s ease-in-out infinite',
+        borderRadius: '4px',
+        margin: '0 4px',
+      }} />
+    ))}
+  </div>
+);
+
+const TableComponent: React.FC = () => {
+  const [rows, setRows] = useState<Row[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isViewAllDisabled, setIsViewAllDisabled] = useState(false);
+  const apiRef = useGridApiRef();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setRows(initialRows);
+      setIsLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const addMoreRows = () => {
+    if (isViewAllDisabled) return;
+    setIsLoading(true);
+    setTimeout(() => {
+      const lastId = rows.length > 0 ? rows[rows.length - 1].id : 0;
+      setRows([...rows, ...generateMoreRows(lastId)]);
+      setIsLoading(false);
+      setIsViewAllDisabled(true);
+    }, 1000);
+  };
+
+  const renderSortHeader = (params: any) => {
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Poppins', fontWeight: 700, fontSize: '12px', lineHeight: '16px', textTransform: 'uppercase' }}>
+        <span style={{ marginRight: '4px' }}>{params.colDef.headerName}</span>
+        <SwapVertIcon sx={{ fontSize: 16, color: '#383E4C' }} />
+      </div>
+    );
+  };
+
+  const columns: GridColDef[] = [
+    { field: 'propertyName', headerName: 'PROPERTY NAME', flex: 1, minWidth: 85, sortable: true, renderHeader: renderSortHeader },
+    { field: 'address', headerName: 'ADDRESS', flex: 1, minWidth: 85, sortable: false },
+    { field: 'phone', headerName: 'PHONE', flex: 1, minWidth: 85, sortable: false },
+    {
+      field: 'businessHours',
+      headerName: 'BUSINESS HOURS',
+      flex: 1,
+      minWidth: 85,
+      sortable: false,
+      renderCell: (params: GridRenderCellParams) => (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', maxHeight: '36px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          {params.value}
+          {params.value === 'Present' && <ErrorIcon sx={{ color: '#556EE6', fontSize: 16 }} />}
+        </div>
+      ),
+    },
+    { field: 'category', headerName: 'CATEGORY', flex: 1, minWidth: 85, sortable: false },
+    {
+      field: 'website',
+      headerName: 'WEBSITE',
+      flex: 1,
+      minWidth: 85,
+      sortable: false,
+      renderCell: (params: GridRenderCellParams) => (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', maxHeight: '36px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          {params.value}
+          {params.value === 'Available' && <LaunchIcon sx={{ color: '#3464EB', fontSize: 16 }} />}
+        </div>
+      ),
+    },
+    {
+      field: 'mismatched',
+      headerName: 'MISMATCHED',
+      flex: 1,
+      minWidth: 85,
+      sortable: true,
+      renderHeader: renderSortHeader,
+      renderCell: (params: GridRenderCellParams) => (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', maxHeight: '36px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          {params.value}
+          {params.value > 0 && <ReportIcon sx={{ color: '#F46A6A', fontSize: 16 }} />}
+        </div>
+      ),
+    },
+    {
+      field: 'missing',
+      headerName: 'MISSING',
+      flex: 1,
+      minWidth: 85,
+      sortable: true,
+      renderHeader: renderSortHeader,
+      renderCell: (params: GridRenderCellParams) => (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', maxHeight: '36px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          {params.value}
+          {params.value > 0 && <ReportIcon sx={{ color: '#F46A6A', fontSize: 16 }} />}
+        </div>
+      ),
+    },
+    {
+      field: 'lastUpdate',
+      headerName: 'LAST UPDATE DATE & TIME',
+      flex: 1,
+      minWidth: 85,
+      sortable: true,
+      renderHeader: renderSortHeader,
+      renderCell: (params: GridRenderCellParams) => (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '4px', maxHeight: '36px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          {params.value}
+          <ReportIcon sx={{ color: '#F46A6A', fontSize: 16 }} />
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <div style={{ width: '100%',height:"100%", margin: '0 auto', background: '#ffffff', borderRadius: '12px', boxShadow: '0 2px 12px rgba(0,0,0,0.08)', fontFamily: 'Poppins', fontSize: '12px' }}>
+      {isLoading && rows.length === 0 ? (
+        <div style={{ height: '80vh', overflowY: 'auto' }}>
+          {Array(5).fill(null).map((_, index) => (
+            <SkeletonRow key={index} />
+          ))}
+        </div>
+      ) : (
+        <div style={{height:"calc(100% - 33px)"}} >
+        <StyledDataGrid
+          apiRef={apiRef}
+          rows={rows}
+          columns={columns}
+          disableRowSelectionOnClick
+          getRowHeight={() => 60}
+          hideFooter
+          sortingMode="client"
+          loading={isLoading && rows.length > 0}
+          sx={{
+            // maxHeight: '40vh',
+            // height:"100%",
+            overflowY: 'auto',
+            '& .MuiDataGrid-virtualScroller': {
+              overflowY: 'auto !important',
+            },
+            '&::-webkit-scrollbar': {
+              width: '6px',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              backgroundColor: '#cbd5e1',
+              borderRadius: '6px',
+            },
+            '&::-webkit-scrollbar-thumb:hover': {
+              backgroundColor: '#a0aec0',
+            },
+          }}
+        />
+        </div>
+      )}
+      <div
+        style={{
+          textAlign: 'right',
+          marginTop: '8px',
+          padding: '2px 16px',
+          color: '#0DA9DE',
+          fontFamily: 'Poppins',
+          fontSize: '14px',
+          fontWeight: 400,
+          cursor: isViewAllDisabled ? 'not-allowed' : 'pointer',
+          opacity: isViewAllDisabled ? 0.5 : 1,
+        }}
+        onClick={addMoreRows}
+      >
+        View All
+      </div>
+    </div>
+  );
+};
+
+export default TableComponent;

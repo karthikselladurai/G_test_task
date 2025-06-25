@@ -1,3 +1,5 @@
+/* App.css */
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,305 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  padding: 8px;
+  height: 100%;
+  overflow: auto;
+}
+@media (min-width: 600px) {
+  .container {
+    padding: 20px;
+    /* height: 100%; */
+    overflow: auto;
+    width: calc(100% - 70px);
+    margin-left: auto;
+  }
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-box {
+  width: 35px;
+  height: 35px;
+  background-color: #c62828;
+  border-radius: 8px;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-title {
+  width: 217px;
+  height: 33px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 33px;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin: 0;
+  color: #6b6b82;
+}
+
+.tabs-row {
+  display: flex;
+  margin-bottom: -1px;
+}
+
+.content-box {
+  border: 1px solid #e3e3ec;
+  border-top: none;
+  height: calc(100% - 117px);
+}
+
+.filters-row {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.status-buttons,
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.table-wrapper {
+  margin-top: 4px;
+  height: calc(100% - 122px);
+}
+
+.action-buttons .button-pair {
+  display: flex;
+  flex-direction: row;
+  justify-content: top;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Responsive styles for <= 1750px */
+@media (max-width: 1750px) {
+  .action-buttons .button-pair {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .button-pair > * {
+    width: 100%;
+  }
+}
+
+/* Show icons + adjust layout at <=1550px */
+@media (max-width: 1550px) {
+  .action-buttons {
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  .action-buttons .button-pair {
+    flex-direction: row;
+    gap: 8px;
+  }
+  .action-buttons .button-pair .MuiTypography-root {
+    display: none;
+  }
+  .action-buttons .button-pair .MuiButton-root {
+    min-width: 35px !important;
+    width: 35px !important;
+    padding: 0 !important;
+    justify-content: center;
+  }
+  /* Force-show icons */
+  .action-buttons .button-pair .MuiButton-root svg {
+    display: block !important;
+  }
+}
+
+@media (max-width: 1350px) {
+  /* Force two rows */
+  .filters-row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Top row: Status buttons (single row, scroll if needed) */
+  .status-buttons {
+    display: flex;
+    flex-wrap: nowrap; /* Never wrap */
+    overflow-x: auto; /* Scroll if overflow */
+    gap: 12px;
+    width: 100%;
+    padding-bottom: 8px; /* Space for scrollbar */
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on mobile */
+  }
+
+  /* Bottom row: Action buttons (search + buttons in single row) */
+  .action-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  /* Ensure button pair stays in one row */
+  .button-pair {
+    display: flex;
+    gap: 8px;
+  }
+
+  /* Restore full button styles */
+  .action-buttons .button-pair .MuiButton-root {
+    width: 200px !important; /* Fixed width as in your JSX */
+    min-width: auto !important;
+    padding: 0 12px !important;
+  }
+
+  /* Ensure text is visible */
+  .action-buttons .button-pair .MuiTypography-root {
+    display: inline-block !important;
+  }
+}
+
+@media (max-width: 1050px) {
+  .filters-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center; /* Center all child elements */
+  }
+
+  .status-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+  }
+
+  /* Action buttons container */
+  .action-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center entire row content */
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    flex-wrap: wrap; /* Allow wrapping if needed */
+  }
+
+  /* Search input */
+  .search-input-wrapper {
+    flex: 0 0 auto; /* Don't grow/shrink */
+    min-width: 258px;
+    max-width: 300px;
+  }
+
+  /* Button pair */
+  .button-pair {
+    display: flex;
+    gap: 8px;
+    flex: 0 0 auto; /* Don't grow/shrink */
+  }
+}
+
+@media (max-width: 660px) {
+  .filters-row {
+    flex-direction: column !important;
+    gap: 16px;
+  }
+
+  .dashboard-title {
+    font-size: 16px !important;
+  }
+
+  .status-buttons {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px;
+    width: 100% !important;
+  }
+
+  .action-buttons {
+    width: 100% !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+  }
+
+  .search-input-wrapper {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .search-input-wrapper > * {
+    width: 100% !important;
+  }
+
+  .button-pair {
+    flex-direction: column !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+
+  .button-pair > * {
+    width: 100% !important;
+  }
+}
+
+.content-area {
+  width: 100%;
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  background-color: #e1edf7;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.header-container-dark {
+  background-color: #7c7c7c;
+}
+
+.header-component {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.header-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
 }
