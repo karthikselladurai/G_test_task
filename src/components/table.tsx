@@ -18,6 +18,7 @@ import dayjs from "dayjs";
 // Styled DataGrid
 const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   border: "none",
+  "--DataGrid-rowBorderColor": "transparent",
   "& .MuiDataGrid-columnHeaders": {
     position: "sticky",
     top: 0,
@@ -71,6 +72,12 @@ const StyledDataGrid = styled(DataGrid)(({ theme }) => ({
   },
   '& .MuiDataGrid-cell[data-field="propertyName"]': {
     color: "#3464EB",
+  },
+  "&:focus": {
+    outline: "none",
+  },
+  "&:focus-visible": {
+    outline: "none",
   },
 }));
 
@@ -165,7 +172,7 @@ const TableComponent: React.FC = () => {
       field: "propertyName",
       headerName: "PROPERTY NAME",
       flex: 1,
-      minWidth: 85,
+      minWidth: 140,
       sortable: true,
       renderHeader: renderSortHeader,
     },
@@ -173,21 +180,21 @@ const TableComponent: React.FC = () => {
       field: "address",
       headerName: "ADDRESS",
       flex: 1,
-      minWidth: 85,
+      minWidth: 140,
       sortable: false,
     },
     {
       field: "phone",
       headerName: "PHONE",
       flex: 1,
-      minWidth: 85,
+      minWidth: 140,
       sortable: false,
     },
     {
       field: "businessHours",
       headerName: "BUSINESS HOURS",
       flex: 1,
-      minWidth: 85,
+      minWidth: 140,
       sortable: false,
       renderCell: (params: GridRenderCellParams) => (
         <div
@@ -212,14 +219,14 @@ const TableComponent: React.FC = () => {
       field: "category",
       headerName: "CATEGORY",
       flex: 1,
-      minWidth: 85,
+      minWidth: 140,
       sortable: false,
     },
     {
       field: "website",
       headerName: "WEBSITE",
       flex: 1,
-      minWidth: 85,
+      minWidth: 140,
       sortable: false,
       renderCell: (params: GridRenderCellParams) => (
         <div
@@ -244,7 +251,7 @@ const TableComponent: React.FC = () => {
       field: "mismatched",
       headerName: "MISMATCHED",
       flex: 1,
-      minWidth: 85,
+      minWidth: 140,
       sortable: true,
       renderHeader: renderSortHeader,
       renderCell: (params: GridRenderCellParams) => (
@@ -271,7 +278,7 @@ const TableComponent: React.FC = () => {
       field: "missing",
       headerName: "MISSING",
       flex: 1,
-      minWidth: 85,
+      minWidth: 140,
       sortable: true,
       renderHeader: renderSortHeader,
       renderCell: (params: GridRenderCellParams) => (
@@ -368,6 +375,15 @@ const TableComponent: React.FC = () => {
               "& .MuiDataGrid-virtualScroller": {
                 overflowY: "auto !important",
               },
+
+              "& .MuiDataGrid-columnHeader:focus, & .MuiDataGrid-cell:focus": {
+                outline: "none",
+              },
+              "& .MuiDataGrid-columnHeader:focus-within, & .MuiDataGrid-cell:focus-within":
+                {
+                  outline: "none",
+                },
+
               "&::-webkit-scrollbar": {
                 width: "6px",
               },
@@ -378,6 +394,7 @@ const TableComponent: React.FC = () => {
               "&::-webkit-scrollbar-thumb:hover": {
                 backgroundColor: "#a0aec0",
               },
+
               "& .MuiDataGrid-cellEmpty": {
                 display: "none",
               },

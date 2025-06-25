@@ -68,7 +68,7 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
         <Typography
           variant="body1"
           sx={{
-            display: { xs: "none", sm: "flex", fontSize: "14px" },
+            display: { xs: "none", sm: "flex", fontSize: "14px",width:"115px" },
           }}
         >
           John Doe

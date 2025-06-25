@@ -88,7 +88,7 @@ function SideBar({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
     >
       <Box
         sx={{
-          height: 64,
+          height: 84,
           display: "flex",
           alignItems: "center",
           px: 2,

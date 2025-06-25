@@ -54,9 +54,9 @@ function Main() {
       <Box className="content-box">
         <div className="filters-row">
           <div className="status-buttons">
-            <CustomButton text="MisMatched" number={27} bgColor="#8C6ECB" />
+            <CustomButton text="Mismatched" number={27} bgColor="##3307A899" />
             <CustomButton text="Missing" number={10} bgColor="#ED743299" />
-            <CustomButton text="Updates" number={19} bgColor="#383E4C99" />
+            <CustomButton text="Duplicate" number={19} bgColor="#BDBECB" />
             <CustomButton
               text="Issues with Updates/ Deletion"
               number={10}
@@ -83,7 +83,7 @@ function Main() {
               <IconTextButton
                 text="Ignore Websites from Listing"
                 icon={<RemoveCircleRoundedIcon fontSize="small" />}
-                bgColor="#F4A840"
+                bgColor="#F1AC58"
                 width={220}
               />
             </div>

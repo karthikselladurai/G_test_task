@@ -1,5 +1,28 @@
 /* App.css */
 
+/* Scrollbar for WebKit browsers (Chrome, Edge, Safari) */
+.MuiDataGrid-root *::-webkit-scrollbar {
+  width: 18px;
+}
+
+.MuiDataGrid-root *::-webkit-scrollbar-thumb {
+  background-color: #E0E0E0;
+  border-radius: 4.8px;
+  border: 4px solid transparent; /* Creates space around thumb */
+  background-clip: content-box;
+}
+
+.MuiDataGrid-root *::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Optional: Firefox */
+.MuiDataGrid-root {
+  scrollbar-width: thin; /* options: auto | thin | none */
+  scrollbar-color: #E0E0E0 transparent;
+}
+
+
 .App {
   text-align: center;
 }
@@ -40,13 +63,15 @@
 }
 
 .container {
-  padding: 8px;
+  padding: 5px;
+  /* padding-top: px; */
   height: 100%;
   overflow: auto;
 }
 @media (min-width: 600px) {
   .container {
     padding: 20px;
+    padding-bottom: 0px;
     overflow: auto;
     width: calc(100% - 70px);
     margin-left: auto;
@@ -91,13 +116,17 @@
 
 .tabs-row {
   display: flex;
+  gap: 1px;
   margin-bottom: -1px;
 }
 
 .content-box {
-  border: 1px solid #e3e3ec;
+  /* border: 1px solid #e3e3ec; */
+   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
   border-top: none;
-  height: calc(100vh - 198px);
+  height: calc(100vh - 178px);
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
 
 }
 
@@ -128,13 +157,14 @@
   flex-direction: row;
   justify-content: top;
   align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
 }
 
 /* Responsive styles for <= 1750px */
-@media (max-width: 1750px) {
+@media (max-width: 1990px) {
   .action-buttons .button-pair {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 12px;
   }
@@ -145,8 +175,11 @@
 
 /* Show icons + adjust layout at <=1550px */
 @media (max-width: 1550px) {
+  .action-buttons .button-pair .MuiTypography-root {
+    display: none;
+  }
   .action-buttons {
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: flex-end;
     gap: 8px;
   }
@@ -204,16 +237,16 @@
   }
 
   /* Restore full button styles */
-  .action-buttons .button-pair .MuiButton-root {
-    width: 200px !important; /* Fixed width as in your JSX */
+  /* .action-buttons .button-pair .MuiButton-root {
+    width: 200px !important; 
     min-width: auto !important;
     padding: 0 12px !important;
-  }
+  } */
 
   /* Ensure text is visible */
-  .action-buttons .button-pair .MuiTypography-root {
+  /* .action-buttons .button-pair .MuiTypography-root {
     display: inline-block !important;
-  }
+  } */
 }
 
 @media (max-width: 1050px) {
@@ -276,7 +309,7 @@
 
   .action-buttons {
     width: 100% !important;
-    flex-direction: column !important;
+    /* flex-direction: column !important; */
     align-items: center !important;
     gap: 16px !important;
   }
@@ -291,7 +324,7 @@
   }
 
   .button-pair {
-    flex-direction: column !important;
+    /* flex-direction: column !important; */
     width: 100% !important;
     align-items: center !important;
   }

@@ -50,7 +50,14 @@ const SearchInput = ({ value, onChange }: Props) => {
           borderBottomRightRadius: "6px",
         }}
       >
-        <SearchIcon sx={{ fontSize: "15px", color: "#FFFFFF" }} />
+        <SearchIcon
+          sx={{
+            fontSize: "15px",
+            color: "#FFFFFF",
+            width: "30px",
+            height: "30px",
+          }}
+        />
       </Box>
     </Box>
   );
