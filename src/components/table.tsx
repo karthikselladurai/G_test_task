@@ -392,7 +392,7 @@ const TableComponent: React.FC = () => {
             ))}
         </div>
       ) : (
-        <div style={{ height: "calc(100% - 33px)" }}>
+        <div style={{ height: "calc(100% - 50px)" }}>
           <StyledDataGrid
             // disableExtendRowFullWidth={true}
             apiRef={apiRef}
