@@ -22,8 +22,8 @@ export const initialRows: Row[] = [
     category: "Apartment Complex",
     website: "Available",
     mismatched: 2,
-    missing: 2,
-    lastUpdate: "07/25/2025 11:23 AM",
+    missing: 7,
+    lastUpdate: "MM/DD/YYYY HH:MM",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ export const initialRows: Row[] = [
     website: "Available",
     mismatched: 0,
     missing: 2,
-    lastUpdate: "08/25/2025 11:23 AM",
+    lastUpdate: "MM/DD/YYYY HH:MM",
   },
   {
     id: 3,
@@ -46,8 +46,8 @@ export const initialRows: Row[] = [
     category: "Apartment Rental Agency",
     website: "Available",
     mismatched: 5,
-    missing: 1,
-    lastUpdate: "06/25/2025 11:23 AM",
+    missing: 5,
+    lastUpdate: "MM/DD/YYYY HH:MM",
   },
   {
     id: 4,
@@ -59,7 +59,7 @@ export const initialRows: Row[] = [
     website: "Available",
     mismatched: 7,
     missing: 7,
-    lastUpdate: "06/26/2025 11:23 AM",
+    lastUpdate: "MM/DD/YYYY HH:MM",
   },
   {
     id: 5,
@@ -71,7 +71,7 @@ export const initialRows: Row[] = [
     website: "Available",
     mismatched: 2,
     missing: 2,
-    lastUpdate: "06/28/2025 11:23 AM",
+    lastUpdate: "MM/DD/YYYY HH:MM",
   },
   {
     id: 6,
@@ -83,7 +83,7 @@ export const initialRows: Row[] = [
     website: "Available",
     mismatched: 0,
     missing: 0,
-    lastUpdate: "06/29/2025 11:23 AM",
+    lastUpdate: "MM/DD/YYYY HH:MM",
   },
   {
     id: 7,
@@ -95,7 +95,7 @@ export const initialRows: Row[] = [
     website: "Available",
     mismatched: 6,
     missing: 6,
-    lastUpdate: "06/21/2025 11:23 AM",
+    lastUpdate: "MM/DD/YYYY HH:MM",
   },
   {
     id: 8,
@@ -107,7 +107,7 @@ export const initialRows: Row[] = [
     website: "Available",
     mismatched: 8,
     missing: 8,
-    lastUpdate: "06/23/2025 11:23 AM",
+    lastUpdate: "MM/DD/YYYY HH:MM",
   },
   {
     id: 9,
@@ -119,7 +119,7 @@ export const initialRows: Row[] = [
     website: "Available",
     mismatched: 9,
     missing: 9,
-    lastUpdate: "06/20/2025 11:23 AM",
+    lastUpdate: "MM/DD/YYYY HH:MM",
   },
   {
     id: 10,
@@ -131,7 +131,7 @@ export const initialRows: Row[] = [
     website: "Available",
     mismatched: 1,
     missing: 1,
-    lastUpdate: "06/29/2025 11:23 AM",
+    lastUpdate: "MM/DD/YYYY HH:MM",
   },
 ];
 
@@ -147,7 +147,7 @@ export const generateMoreRows = (lastId: number): Row[] => {
       website: "Available",
       mismatched: 1,
       missing: 2,
-      lastUpdate: "06/28/2025 11:23 AM",
+      lastUpdate: "MM/DD/YYYY HH:MM",
     },
     {
       id: lastId + 2,
@@ -159,7 +159,7 @@ export const generateMoreRows = (lastId: number): Row[] => {
       website: "Available",
       mismatched: 0,
       missing: 0,
-      lastUpdate: "06/29/2025 11:23 AM",
+      lastUpdate: "MM/DD/YYYY HH:MM",
     },
     {
       id: lastId + 3,
@@ -171,7 +171,7 @@ export const generateMoreRows = (lastId: number): Row[] => {
       website: "Available",
       mismatched: 4,
       missing: 1,
-      lastUpdate: "06/22/2025 11:23 AM",
+      lastUpdate: "MM/DD/YYYY HH:MM",
     },
     {
       id: lastId + 4,
@@ -183,7 +183,7 @@ export const generateMoreRows = (lastId: number): Row[] => {
       website: "Available",
       mismatched: 3,
       missing: 2,
-      lastUpdate: "06/27/2025 11:23 AM",
+      lastUpdate: "MM/DD/YYYY HH:MM",
     },
     {
       id: lastId + 5,
@@ -195,7 +195,7 @@ export const generateMoreRows = (lastId: number): Row[] => {
       website: "Available",
       mismatched: 0,
       missing: 0,
-      lastUpdate: "06/28/2025 11:23 AM",
+      lastUpdate: "MM/DD/YYYY HH:MM",
     },
     {
       id: lastId + 6,
@@ -207,7 +207,7 @@ export const generateMoreRows = (lastId: number): Row[] => {
       website: "Available",
       mismatched: 2,
       missing: 5,
-      lastUpdate: "06/26/2025 11:23 AM",
+      lastUpdate: "MM/DD/YYYY HH:MM",
     },
     {
       id: lastId + 7,
@@ -219,7 +219,7 @@ export const generateMoreRows = (lastId: number): Row[] => {
       website: "Available",
       mismatched: 1,
       missing: 1,
-      lastUpdate: "06/22/2025 11:23 AM",
+      lastUpdate: "MM/DD/YYYY HH:MM",
     },
     {
       id: lastId + 8,
@@ -231,7 +231,7 @@ export const generateMoreRows = (lastId: number): Row[] => {
       website: "Available",
       mismatched: 3,
       missing: 4,
-      lastUpdate: "06/24/2025 11:23 AM",
+      lastUpdate: "MM/DD/YYYY HH:MM",
     },
     {
       id: lastId + 9,

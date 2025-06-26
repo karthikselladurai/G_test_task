@@ -277,7 +277,9 @@ const TableComponent: React.FC = () => {
         <div
           style={{
             display: "flex",
+            justifyContent: "center",
             alignItems: "center",
+             paddingLeft:"19px",
             gap: "14px",
             whiteSpace: "normal",
             wordBreak: "break-word",
@@ -287,7 +289,7 @@ const TableComponent: React.FC = () => {
           {" "}
           {/* Removed maxHeight and overflow */}
           {params.value}
-          {params.value > 0 && (
+          {(params.value === 2 || params.value === 7 || params.value === 8) && (
             // <ReportIcon sx={{ color: "#F46A6A", fontSize: 16 }} />
             <img
               src={ReportIcon}
@@ -309,7 +311,9 @@ const TableComponent: React.FC = () => {
         <div
           style={{
             display: "flex",
+            justifyContent: "center",
             alignItems: "center",
+             paddingLeft:"19px",
             gap: "14px",
             whiteSpace: "normal",
             wordBreak: "break-word",
@@ -319,7 +323,7 @@ const TableComponent: React.FC = () => {
           {" "}
           {/* Removed maxHeight and overflow */}
           {params.value}
-          {params.value > 0 && (
+          {(params.value ===2 || params.value ===5 || params.value ===6 || params.value ===9) && (
             // <ReportIcon sx={{ color: "#F46A6A", fontSize: 16 }} />
             <img
               src={ReportIcon}
@@ -338,23 +342,25 @@ const TableComponent: React.FC = () => {
       sortable: true,
       renderHeader: renderSortHeader,
       renderCell: (params: GridRenderCellParams) => {
-        const { mismatched } = params.row;
+        const { missing } = params.row;
         return (
           <div
             style={{
               display: "flex",
-              alignItems: "center",
+              justifyContent: "center",
+            alignItems: "center",
+             paddingLeft:"15px",
               gap: "14px",
               whiteSpace: "nowrap",
               textOverflow: "ellipsis",
               overflow: "hidden",
-              color: mismatched <= 0 ? "#3464EB" : " #6B6D82",
+              color: (missing ===0 || missing===8) ? "#3464EB" : " #6B6D82",
             }}
           >
             {" "}
             {/* Removed maxHeight and overflow */}
             {params.value}
-            {dayjs(params.value, "MM/DD/YYYY hh:mm A").isBefore(dayjs()) && (
+            {(missing ===0 || missing===8 ||missing===1) && (
               // <ReportIcon sx={{ color: "#F46A6A", fontSize: 16 }} />
               <img
                 src={ReportIcon}
