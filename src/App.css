@@ -397,3 +397,6 @@
 .css-1vkrt00-MuiButtonBase-root-MuiIconButton-root-MuiDataGrid-sortButton{
   display: none !important;
 }
+.MuiDataGrid-iconButtonContainer css-cp5hn7{
+    display: none !important;
+}
