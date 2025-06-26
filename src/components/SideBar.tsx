@@ -173,7 +173,7 @@ function SideBar({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
       <Box
         sx={{
           width: "52px",
-          height: "84px",
+          height: "68.5px",
           display: "flex",
           alignItems: "center",
           px: 2,
@@ -199,7 +199,7 @@ function SideBar({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
         </Button>
       </Box>
 
-      <List sx={{ px: 0, marginTop: { sm: "33px" }, width: "52px" }}>
+      <List sx={{ px: 0, width: "52px" }}>
         {navItems.map(({ icon }, index) => (
           <ListItem disablePadding key={index} sx={{ px: 0, display: "block" }}>
             <Tooltip title={""} placement="right">

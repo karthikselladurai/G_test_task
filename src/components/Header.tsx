@@ -23,7 +23,7 @@ function Header({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
       <div className="header-left">
         <Box
           sx={{
-            height: isMobile ? "68.5px" : "84px",
+            height: "68.5px",
             mr: 2,
             minWidth: 52,
             display: "flex",
