@@ -167,6 +167,11 @@ function SideBar({ setSideBarOpen, sideBarOpen }: Readonly<IProps>) {
           boxSizing: "border-box",
           backgroundColor: "#2B3B5C",
           color: "#fff",
+           scrollbarWidth: 'none', // Firefox
+    msOverflowStyle: 'none', // IE/Edge
+    '&::-webkit-scrollbar': {
+      display: 'none' // Chrome/Safari
+    }
         },
       }}
     >
